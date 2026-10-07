@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Village-morning palette: paddy green, turmeric, monsoon sky on warm cream */
+    --background: 42 45% 96%;
+    --foreground: 160 30% 12%;
+    --card: 40 50% 99%;
+    --card-foreground: 160 30% 12%;
+    --primary: 156 67% 34%;
+    --primary-foreground: 42 60% 98%;
+    --secondary: 38 92% 52%;
+    --secondary-foreground: 160 35% 10%;
+    --accent: 202 78% 46%;
+    --accent-foreground: 42 60% 98%;
+    --success: 145 63% 38%;
+    --success-foreground: 42 60% 98%;
+    --destructive: 4 74% 52%;
+    --destructive-foreground: 42 60% 98%;
+    --muted: 40 30% 90%;
+    --muted-foreground: 160 12% 38%;
+    --border: 40 25% 84%;
+    --input: 40 25% 84%;
+    --ring: 156 67% 34%;
+    --ink: 160 32% 11%;
+    --ink-foreground: 42 45% 94%;
+    --radius: 1.25rem;
+
+    --gradient-hero: linear-gradient(135deg, hsl(156 67% 34%), hsl(176 60% 36%) 55%, hsl(202 78% 46%));
+    --gradient-sun: linear-gradient(135deg, hsl(38 92% 52%), hsl(18 88% 54%));
+    --shadow-soft: 0 10px 30px -12px hsl(160 30% 12% / 0.18);
+    --shadow-pop: 0 6px 0 0 hsl(156 67% 24%);
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground font-body antialiased; }
+  h1, h2, h3, h4 { @apply font-display; }
+}
+
+@layer components {
+  .hero-gradient { background: var(--gradient-hero); }
+  .sun-gradient { background: var(--gradient-sun); }
+  .text-gradient {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .dotted-bg {
+    background-image: radial-gradient(hsl(var(--primary) / 0.12) 1.5px, transparent 1.5px);
+    background-size: 22px 22px;
+  }
+}
+
+@media print {
+  body * { visibility: hidden; }
+  #printable-certificate, #printable-certificate * { visibility: visible; }
+  #printable-certificate { position: fixed; inset: 0; margin: auto; }
+}
